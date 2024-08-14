@@ -11,7 +11,7 @@ public class SortArray {
             int beg = scan.nextInt();
             int k = scan.nextInt();
             int ind = -1;
-            int a[] = new int[l];
+            int[] a = new int[l];
             Random rand = new Random(beg);
             for (int i = 0; i < a.length; i++) {
                 a[i] = rand.nextInt(2, 16);
