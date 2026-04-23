@@ -6,14 +6,12 @@ public class Airport {
     private int totalSeatCount;
     private int soldTicketsCount;
 
-
-    public Airport (String airportName, double ticketCost, int  totalSeatCount, int soldTicketsCount) {
+    public Airport(String airportName, double ticketCost, int totalSeatCount, int soldTicketsCount) {
         this.airportName = airportName;
-        this.ticketCost = ticketCost;
+        setTicketCost(ticketCost);
         this.totalSeatCount = totalSeatCount;
-        this.soldTicketsCount = soldTicketsCount;
+        setSoldTicketsCount(soldTicketsCount);
     }
-
 
     public double calculateTotalRevenue() {
         return soldTicketsCount * ticketCost;
@@ -27,24 +25,36 @@ public class Airport {
         this.airportName = airportName;
     }
 
-
     public double getTicketCost() {
         return ticketCost;
     }
     public void setTicketCost(double ticketCost) {
+        if (ticketCost < 0) {
+            throw new IllegalArgumentException("Цена не может быть отрицательной");
+        }
         this.ticketCost = ticketCost;
     }
 
+    public int getSoldTicketsCount() {
+        return soldTicketsCount;
+    }
+    public void setSoldTicketsCount(int soldTicketsCount) {
+        if (soldTicketsCount < 0) {
+            throw new IllegalArgumentException("Число проданных билетов не может быть отрицательным");
+        }
+        if (soldTicketsCount > this.totalSeatCount) {
+            throw new IllegalArgumentException(
+                    "Проданных билетов не может быть больше мест (" + this.totalSeatCount + ")"
+            );
+        }
+        this.soldTicketsCount = soldTicketsCount;
+    }
 
     public void setTotalSeatCount(int totalSeatCount) {
         this.totalSeatCount = totalSeatCount;
     }
-
-
-    public void setSoldTicketsCount(int soldTicketsCount) {
-        this.soldTicketsCount = soldTicketsCount;
-    }
 }
+
 
 
 
