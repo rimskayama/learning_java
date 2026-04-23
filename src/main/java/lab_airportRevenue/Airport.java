@@ -29,8 +29,8 @@ public class Airport {
         return ticketCost;
     }
     public void setTicketCost(double ticketCost) {
-        if (ticketCost < 0) {
-            throw new IllegalArgumentException("Цена не может быть отрицательной");
+        if (ticketCost <= 0) {
+            throw new IllegalArgumentException("Цена должна быть больше нуля");
         }
         this.ticketCost = ticketCost;
     }
@@ -39,8 +39,8 @@ public class Airport {
         return soldTicketsCount;
     }
     public void setSoldTicketsCount(int soldTicketsCount) {
-        if (soldTicketsCount < 0) {
-            throw new IllegalArgumentException("Число проданных билетов не может быть отрицательным");
+        if (soldTicketsCount <= 0) {
+            throw new IllegalArgumentException("Число проданных билетов должно быть больше нуля");
         }
         if (soldTicketsCount > this.totalSeatCount) {
             throw new IllegalArgumentException(
@@ -54,7 +54,6 @@ public class Airport {
         this.totalSeatCount = totalSeatCount;
     }
 }
-
 
 
 
