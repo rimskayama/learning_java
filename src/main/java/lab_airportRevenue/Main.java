@@ -21,8 +21,8 @@ public class Main {
                 System.out.print("Введите стоимость билета: ");
                 try {
                     ticketCost = Double.parseDouble(scanner.nextLine());
-                    if (ticketCost < 0) {
-                        System.out.println("Ошибка: стоимость не может быть отрицательной.");
+                    if (ticketCost <= 0) {
+                        System.out.println("Ошибка: стоимость должна быть больше нуля.");
                         continue;
                     }
                     break;
